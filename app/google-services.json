@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "443785213822",
+    "firebase_url": "https://vitbus1.firebaseio.com",
+    "project_id": "vitbus1",
+    "storage_bucket": "vitbus1.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:443785213822:android:12d6adda7ae499b0",
+        "android_client_info": {
+          "package_name": "com.example.android.vitbus1"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "443785213822-4gapd5e49i6l827fac3n3vmfuda2qmu6.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.android.vitbus1",
+            "certificate_hash": "374663a89a174e89f5fe51c17eb7b6e48ce4d044"
+          }
+        },
+        {
+          "client_id": "443785213822-huuem43qi9h4poljt1bubgnribkd6lco.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDSsA6eXdPwGOIam9oOZI4s7GcSSZE2BeU"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "443785213822-huuem43qi9h4poljt1bubgnribkd6lco.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

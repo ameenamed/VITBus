@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
+import android.app.Activity;
 import android.app.Application;
 
 import com.firebase.client.Firebase;
@@ -27,6 +28,7 @@ public class MainActivity extends AppCompatActivity {
     {
         Intent intent=new Intent(this,Main3Activity.class);
         startActivity(intent);
+        finish();
     }
 
 

@@ -71,7 +71,7 @@
         android:text="OK"
         android:layout_alignParentBottom="true"
         android:layout_alignParentRight="true"
-        android:onClick="map"
+        android:onClick="map1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content" />
 

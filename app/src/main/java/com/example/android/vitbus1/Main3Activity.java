@@ -10,23 +10,33 @@ import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.Toast;
 import android.app.Application;
-
+import android.app.Activity;
+import com.example.android.vitbus1.GoogleMapActivity;
+import com.example.android.vitbus1.MainActivity;
+import com.example.android.vitbus1.MyDBHandler;
+import com.example.android.vitbus1.R;
+import com.example.android.vitbus1.Temp;
+import com.example.android.vitbus1.User;
 import com.firebase.client.Firebase;
 
 public class Main3Activity extends AppCompatActivity {
+    MyDBHandler myDBHandler;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main3);
         Firebase.setAndroidContext(this);
+        myDBHandler=new MyDBHandler(getApplicationContext(),"user",null,1);
+        Temp.setMyDBHandler(myDBHandler);
+        myDBHandler=Temp.getMyDBHandler();
     }
     public void getback(View view)
     {
-        Intent intent=new Intent(this,MainActivity.class);
+        Intent intent=new Intent(this, MainActivity.class);
         startActivity(intent);
     }
-    public void map(View view)
+    public void map1(View view)
     {
         int f=0;
 
@@ -37,6 +47,14 @@ public class Main3Activity extends AppCompatActivity {
         EditText name = (EditText) findViewById(R.id.name);
         EditText bno = (EditText) findViewById(R.id.bno);
         RadioGroup rb = (RadioGroup) findViewById(R.id.rg);
+
+        String user_name=name.getText().toString();
+        String user_id=reg.getText().toString();
+        String user_pass=pass.getText().toString();
+        String user_bus=bno.getText().toString();
+        String user_email=email.getText().toString();
+
+
         if(TextUtils.isEmpty(name.getText()))
         {
             f=1;
@@ -76,15 +94,26 @@ public class Main3Activity extends AppCompatActivity {
 
         if(f==0)
         {
+            User user=new User();
+            user.setName1(user_name);
+            user.setRegNo(user_id);
+            user.setBusNo(user_bus);
+            user.setEmail1(user_email);
+            user.setPassword(user_pass);
+            int i=myDBHandler.insertUser(user);
+            if(i==0)
+            {
+                Toast.makeText(this,"Error Occurred",Toast.LENGTH_SHORT).show();
+                Intent intent=new Intent(this,Main2Activity.class);
+                startActivity(intent);
 
-            Intent intent=new Intent(this,GoogleMapActivity.class);
+            }
+            else {
+                Toast.makeText(this, "Database Created", Toast.LENGTH_SHORT).show();
+                Intent intent=new Intent(this,GoogleMapActivity.class);
+                startActivity(intent);
 
-
-
-
-
-        startActivity(intent);
-
+            }
         }
     }
 }
